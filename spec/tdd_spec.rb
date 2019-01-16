@@ -1,4 +1,3 @@
-# require 'rspec'
 require 'tdd.rb'
 
 describe 'tdd' do
