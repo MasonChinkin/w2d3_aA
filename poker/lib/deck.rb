@@ -1,6 +1,7 @@
 require_relative "card.rb"
 
 class Deck 
+    SUIT = ("1".."10").to_a + %w(J Q K A)
     attr_reader :cards
     
     def initialize
@@ -10,14 +11,16 @@ class Deck
     def self.populate 
         deck = []
         
-        suit = ("1".."10").to_a + %w(J Q K A)
-        
-        suit.each {|value| deck << Card.new(:red, :hearts, value)}
-        suit.each {|value| deck << Card.new(:red, :diamonds, value)}
-        suit.each {|value| deck << Card.new(:black, :clubs, value)}
-        suit.each {|value| deck << Card.new(:black, :spades, value)}
+        SUIT.each {|value| deck << Card.new(:red, :hearts, value)}
+        SUIT.each {|value| deck << Card.new(:red, :diamonds, value)}
+        SUIT.each {|value| deck << Card.new(:black, :clubs, value)}
+        SUIT.each {|value| deck << Card.new(:black, :spades, value)}
 
         deck
+    end 
+
+    def shuffle 
+        self.cards.shuffle!
     end 
 end 
 
